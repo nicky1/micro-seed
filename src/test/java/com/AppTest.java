@@ -1,4 +1,4 @@
-package com.zhongan.app;
+package com;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
