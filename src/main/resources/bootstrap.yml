@@ -1,0 +1,45 @@
+#目前健康检查默认是用的8080端口，这里严禁修改端口号。
+server:
+  port: 8080
+
+spring:
+  application:
+    name: waffle
+  cloud:
+    config:
+      label: ${DEPLOY_ENV}
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        #prefer-ip-address: true
+        #register: false #公司微服务用的是第三方注册功能，因此程序无需注册。代码提交时，这里千万不能写true。
+      ribbon:
+        enabled: true  #如果你只想用原生服务发现逻辑，请置为true
+    discovery:
+      client:
+        composite-indicator:
+          enabled: false
+        health-indicator:
+          enabled: false
+
+health:
+  config:
+    enabled: false
+  sleuth:
+    log:
+      json:
+        enabled: false
+      slf4j:
+        enabled: false
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  refresh:
+    enabled: false
+ribbon:
+  ConnectTimeout: 30000
+  ReadTimeout: 600000
