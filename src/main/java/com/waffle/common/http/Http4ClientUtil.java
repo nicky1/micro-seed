@@ -211,53 +211,6 @@ public class Http4ClientUtil {
         return post(url, params, ContentType.APPLICATION_FORM_URLENCODED);
     }
 
-    /**
-     * 微信退款接口-获取带ssl认证的httpclient
-     * 
-     * @param certPath：p12证书地址
-     * @param mchId ：证书密钥,默认为商户ID
-     * @return
-     */
-    private static CloseableHttpClient getCertHtppClient(String certPath, String mchId) {
-        try {
-            // 证书密码（默认为商户ID）
-            String password = mchId;
-            // 实例化密钥库
-            KeyStore ks = KeyStore.getInstance("PKCS12");
-
-            // 获得密钥库文件流
-            InputStream fis = Http4ClientUtil.class.getResourceAsStream(certPath);
-            // 加载密钥库
-            ks.load(fis, password.toCharArray());
-            // 关闭密钥库文件流
-            fis.close();
-
-            // 实例化密钥库
-            KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-            // 初始化密钥工厂
-            kmf.init(ks, password.toCharArray());
-
-            SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");
-
-            sslContext.init(kmf.getKeyManagers(), null, new SecureRandom());
-            // 获取SSLSocketFactory对象
-            SSLConnectionSocketFactory sslSocketFactoy = new SSLConnectionSocketFactory(sslContext);
-
-            Registry<ConnectionSocketFactory> r = RegistryBuilder.<ConnectionSocketFactory> create()
-                    .register("https", sslSocketFactoy).build();
-
-            PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager(r);
-            CloseableHttpClient httpClient = HttpClients.custom().setConnectionManager(cm).build();
-            return httpClient;
-        } catch (Exception e) {
-            log.error("异常:{}", e);
-        }
-
-        return null;
-    }
-
-
-
     public static String postXml(String url, String xmlStr) {
         log.info("请求参数:{}", xmlStr);
         HttpPost httppost = new HttpPost(url);
