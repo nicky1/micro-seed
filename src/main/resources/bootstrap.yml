@@ -13,7 +13,7 @@ spring:
       port: 8500
       discovery:
         #prefer-ip-address: true
-        #register: false #公司微服务用的是第三方注册功能，因此程序无需注册。代码提交时，这里千万不能写true。
+        #register: false
       ribbon:
         enabled: true  #如果你只想用原生服务发现逻辑，请置为true
     discovery:
