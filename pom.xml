@@ -10,6 +10,7 @@
 		<docker.registry>10.253.6.113:5000/</docker.registry>
 		<docker.repository>ms</docker.repository>
 		<cloud.version>1.4.1.RELEASE</cloud.version>
+		<vertx.version>3.4.2</vertx.version>
 	</properties>
 
 	<parent>
@@ -155,8 +156,12 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.5</version>
 		</dependency>
-
-
+		<!--vert.x-->
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-core</artifactId>
+			<version>${vertx.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>micro-seed</finalName>
