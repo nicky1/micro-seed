@@ -5,23 +5,25 @@ server:
 spring:
   application:
     name: waffle
-  cloud:
-    config:
-      label: ${DEPLOY_ENV}
-    consul:
-      host: 127.0.0.1
-      port: 8500
-      discovery:
-        #prefer-ip-address: true
-        #register: false
-      ribbon:
-        enabled: true  #如果你只想用原生服务发现逻辑，请置为true
-    discovery:
-      client:
-        composite-indicator:
-          enabled: false
-        health-indicator:
-          enabled: false
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    instanceId: ${spring.application.name}:${spring.cloud.client.ipAddress}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+    preferIpAddress: true
+  client:
+    registryFetchIntervalSeconds: 1
+    serviceUrl:
+      #defaultZone:  http://mse.zhonganonline.com:8761/eureka/
+      defaultZone: http://11516-iyunbao-ifuli-icare-api.test.za.net/eureka
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  refresh:
+    enabled: true
 
 health:
   config:
@@ -33,13 +35,3 @@ health:
       slf4j:
         enabled: false
 
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
-  refresh:
-    enabled: false
-ribbon:
-  ConnectTimeout: 30000
-  ReadTimeout: 600000
