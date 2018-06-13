@@ -6,16 +6,16 @@ spring:
   application:
     name: waffle
 
-eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 1
-    instanceId: ${spring.application.name}:${spring.cloud.client.ipAddress}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
-    preferIpAddress: true
-  client:
-    registryFetchIntervalSeconds: 1
-    serviceUrl:
-      #defaultZone:  http://mse.zhonganonline.com:8761/eureka/
-      defaultZone: http://11516-iyunbao-ifuli-icare-api.test.za.net/eureka
+#eureka:
+#  instance:
+#    leaseRenewalIntervalInSeconds: 1
+#    instanceId: ${spring.application.name}:${spring.cloud.client.ipAddress}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+#    preferIpAddress: true
+#  client:
+#    registryFetchIntervalSeconds: 1
+#    serviceUrl:
+#      #defaultZone:  http://mse.zhonganonline.com:8761/eureka/
+#      defaultZone: http://11516-iyunbao-ifuli-icare-api.test.za.net/eureka
 
 endpoints:
   restart:
