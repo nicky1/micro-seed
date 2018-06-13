@@ -1,6 +1,6 @@
 package com.test.socket;
 
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 import java.net.Socket;
@@ -10,9 +10,9 @@ import java.net.Socket;
  * @author Nick
  *
  */
+@Slf4j
 public class TestSocketClient {
 	
-	private static final Logger logger=Logger.getLogger(TestSocketClient.class);
 
 	public static String sendSynMsg(String ip,String port, String xml,int timeout) throws Exception{   
 		 //为了简单起见，所有的异常都直接往外抛  
@@ -40,7 +40,7 @@ public class TestSocketClient {
 	      StringBuffer sb = new StringBuffer();  
 	      sb.append(new String(chars, 0,reader.read(chars))); 
 	      reader.close();  
-	      logger.info("from server: " + sb);  
+	      log.info("from server: " + sb);
 	      return sb.toString();
 	}
 	
@@ -55,6 +55,6 @@ public class TestSocketClient {
 	public static void main(String[] args) throws Exception {
 		String s1=sendSynMsg("172.56.3.86", "8888", "12222222", 10000);
 		
-		logger.info(s1);
+		log.info(s1);
 	}
 }

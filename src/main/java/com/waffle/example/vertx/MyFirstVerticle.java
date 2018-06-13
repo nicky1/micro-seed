@@ -1,7 +1,6 @@
 package com.waffle.example.vertx;
 
 import io.vertx.core.AbstractVerticle;
-import org.bouncycastle.cert.ocsp.Req;
 
 /**
  * Created by yixiaoshuang on 2018/5/21.

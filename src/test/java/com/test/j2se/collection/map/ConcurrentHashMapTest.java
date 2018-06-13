@@ -1,15 +1,13 @@
 package com.test.j2se.collection.map;
 
 import junit.framework.TestCase;
-import org.apache.log4j.Logger;
 
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ConcurrentHashMapTest extends TestCase {
 
     
-    private static final Logger log=Logger.getLogger(ConcurrentHashMapTest.class);
-    
+
     public static void main(String[] args) {
         
     }
