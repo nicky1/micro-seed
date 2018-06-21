@@ -20,8 +20,6 @@ spring:
 endpoints:
   restart:
     enabled: true
-  shutdown:
-    enabled: true
   refresh:
     enabled: true
 
