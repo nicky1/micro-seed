@@ -1,11 +1,16 @@
 package com.waffle.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TestBean {
+public class TestBean implements Serializable{
 	private String name;
 	private Integer age;
 	private Date birth;
+
+	public TestBean() {
+
+	}
 
 	public TestBean(String name, Integer age, Date birth) {
 		super();
@@ -36,5 +41,14 @@ public class TestBean {
 
 	public void setBirth(Date birth) {
 		this.birth = birth;
+	}
+
+	@Override
+	public String toString() {
+		return "TestBean{" +
+				"name='" + name + '\'' +
+				", age=" + age +
+				", birth=" + birth +
+				'}';
 	}
 }
