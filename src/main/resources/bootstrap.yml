@@ -1,6 +1,6 @@
 #目前健康检查默认是用的8080端口，这里严禁修改端口号。
 server:
-  port: 8080
+  port: 8081
 
 spring:
   application:

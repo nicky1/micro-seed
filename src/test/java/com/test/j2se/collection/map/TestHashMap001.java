@@ -22,7 +22,7 @@ public class TestHashMap001 {
 			}
 		}
 		arr[size++]=entry;
-		
+
 	}
 
 	public static void main(String[] args) {
