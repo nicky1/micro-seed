@@ -13,6 +13,7 @@
 		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<redisson.version>3.7.5</redisson.version>
 	</properties>
 
 	<parent>
@@ -157,6 +158,13 @@
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-jdbc-client</artifactId>
 			<version>3.5.1</version>
+		</dependency>
+
+		<!--redission-->
+		<dependency>
+			<groupId>org.redisson</groupId>
+			<artifactId>redisson</artifactId>
+			<version>${redisson.version}</version>
 		</dependency>
 
     </dependencies>
