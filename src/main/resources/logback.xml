@@ -59,11 +59,7 @@
 		<appender-ref ref="errorAppender" />
 		<appender-ref ref="infoAppender" />	
 	</logger>
-	<logger name="com.zhongan">
-		<level value="INFO" />
-		<appender-ref ref="errorAppender" />
-		<appender-ref ref="infoAppender" />		
-	</logger>
+
 
 	<logger name="com.netflix">
 		<level value="INFO" />
