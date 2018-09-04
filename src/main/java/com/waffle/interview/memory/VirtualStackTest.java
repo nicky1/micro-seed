@@ -21,6 +21,7 @@ public class VirtualStackTest {
         call();
     }
 
+    //outofmerory error
     public void testOOM(){
         List list = Lists.newArrayList();
         while (true){
