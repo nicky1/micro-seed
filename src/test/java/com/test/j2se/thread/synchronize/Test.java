@@ -19,7 +19,9 @@ public class Test implements Runnable{
 	public static void main(String[] args) {
 		Test t=new Test();
 		Thread t1=new Thread(t);
-		Thread t2=new Thread(t);
+		Test test=new Test();
+
+		Thread t2=new Thread(test);
 		t1.start();
 		t2.start();
 	}
