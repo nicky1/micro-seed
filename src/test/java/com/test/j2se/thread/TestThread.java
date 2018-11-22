@@ -1,5 +1,7 @@
 package com.test.j2se.thread;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class TestThread {
 
 	public static void main(String[] args) throws Exception {
@@ -19,6 +21,8 @@ public class TestThread {
 	public class B{
 		
 	}
+
+	AtomicInteger atomicInteger = new AtomicInteger(1);
 
 }
 
