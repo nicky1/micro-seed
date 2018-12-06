@@ -1,17 +1,21 @@
 package com.waffle.controller;
 
 import com.waffle.bean.TestBean;
-import java.io.Serializable;
-import java.util.Date;
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by yixiaoshuang on 2018/6/21.
@@ -69,6 +73,18 @@ public class MockController {
 
         TestBean testBean = (TestBean) redisTemplate.opsForValue().get("user");
         log.info(testBean.toString());
+
+        String k1 ="list1";
+
+        List<TestBean> list = new ArrayList<>();
+        list.add(bean);
+        bean = new TestBean("张三2",233,new Date());
+        list.add(bean);
+        ListOperations operations = redisTemplate.opsForList();
+        operations.leftPush(k1,list);
+
+        List tmp = operations.range(k1,0,0);
+
     }
 
 }

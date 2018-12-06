@@ -3,5 +3,5 @@ DEPLOY_ENV: test
 #redis config：使用predixy代理访问redis集群
 spring:
   redis:
-    host: 192.168.209.56
-    port: 7617
+    host: 192.168.1.5
+    port: 6379

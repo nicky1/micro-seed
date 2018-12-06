@@ -21,12 +21,21 @@ import java.io.Serializable;
 public class RedisTemplateConfig {
 
     @Bean
-    public RedisTemplate<String,Serializable> redisTemplate(LettuceConnectionFactory factory){
+    public RedisTemplate<String,Serializable> redisTemplate(){
+
         RedisTemplate<String, Serializable> template = new RedisTemplate<>();
         template.setKeySerializer(new StringRedisSerializer());
         template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
         template.setDefaultSerializer(new GenericJackson2JsonRedisSerializer());
-        template.setConnectionFactory(factory);
+        template.setConnectionFactory(lettuceConnectionFactory());
         return template;
+    }
+
+    @Bean
+    public LettuceConnectionFactory lettuceConnectionFactory() {
+        LettuceConnectionFactory factory = new LettuceConnectionFactory("127.0.0.1",6379);
+//        factory.setPassword(password);
+//        factory.setTimeout(timeout);
+        return factory;
     }
 }
