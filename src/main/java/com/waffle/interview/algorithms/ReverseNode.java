@@ -52,6 +52,8 @@ public class ReverseNode {
 
         }
         log.info(JSON.toJSONString(pre));
+        log.info("a:"+JSON.toJSONString(l1));
+
 
     }
 
