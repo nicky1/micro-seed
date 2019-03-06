@@ -25,13 +25,13 @@ public class VirtualStackTest {
     public void testOOM(){
         List list = Lists.newArrayList();
         while (true){
-            list.add(new VirtualStackTest());
+            list.add("222");
         }
 
     }
 
     /**
-     * 当栈调用深度>jvm 所允许的范围，会抛出 stackoverflow的异常，不过这个范围不是一个恒定的值
+     * 当栈调用深度>jvm 所允许的范围，会抛出 stackoverflow 的异常，不过这个范围不是一个恒定的值
      * 1.需要注意这里捕获的是 throwable，而不是 exception。
      * 2.还有一种错误：当申请不到空间时，会抛出 outofmeroryerror。
      * @param args
@@ -46,7 +46,7 @@ public class VirtualStackTest {
 //            log.error("exp:{}",e);
 //        }
 
-//        c.testOOM();
+        c.testOOM();
 
 
     }
