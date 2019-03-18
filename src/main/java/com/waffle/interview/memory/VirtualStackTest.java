@@ -48,6 +48,5 @@ public class VirtualStackTest {
 
         c.testOOM();
 
-
     }
 }
