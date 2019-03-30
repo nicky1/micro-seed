@@ -1,4 +1,4 @@
-package com.waffle.geek.algo.array;
+package com.waffle.interview.algo.array;
 
 /**
  * @author: xiaoshuangyi
