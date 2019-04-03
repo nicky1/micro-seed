@@ -1,4 +1,4 @@
-package com.waffle.example.vertx;
+package com.waffle.frame.vertx;
 
 import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpMethod;

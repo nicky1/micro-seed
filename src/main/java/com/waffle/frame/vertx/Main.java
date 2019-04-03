@@ -1,4 +1,4 @@
-package com.waffle.example.vertx;
+package com.waffle.frame.vertx;
 
 import io.vertx.core.Vertx;
 import lombok.extern.slf4j.Slf4j;

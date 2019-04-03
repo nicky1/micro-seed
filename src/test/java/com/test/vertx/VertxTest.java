@@ -1,6 +1,6 @@
 package com.test.vertx;
 
-import com.waffle.example.vertx.MyFirstVerticle;
+import com.waffle.frame.vertx.MyFirstVerticle;
 import io.vertx.core.Vertx;
 import io.vertx.ext.unit.Async;
 import io.vertx.ext.unit.TestContext;

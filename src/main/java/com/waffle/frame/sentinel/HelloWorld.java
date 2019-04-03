@@ -1,4 +1,4 @@
-package com.waffle.example.sentinel;
+package com.waffle.frame.sentinel;
 
 import com.alibaba.csp.sentinel.Entry;
 import com.alibaba.csp.sentinel.SphU;
@@ -6,7 +6,6 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
-import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
