@@ -12,10 +12,12 @@ eureka:
 #    instanceId: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${spring.application.instance_id:${random.value}}}
     preferIpAddress: true
   client:
-    registryFetchIntervalSeconds: 1
-    serviceUrl:
+    register-with-eureka: false
+  #registryFetchIntervalSeconds: 1
+    #serviceUrl:
       #defaultZone:  http://mse.zhonganonline.com:8761/eureka/
-      defaultZone: http://localhost:8761/eureka/
+      #defaultZone: http://localhost:8761/eureka/
+    fetch-registry: false
 
 endpoints:
   restart:

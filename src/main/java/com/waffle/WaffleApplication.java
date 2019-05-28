@@ -10,8 +10,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  *
  */
-@EnableDiscoveryClient
-@EnableEurekaClient
+//@EnableDiscoveryClient
+//@EnableEurekaClient
 @SpringBootApplication
 @EnableFeignClients
 @EnableCaching
