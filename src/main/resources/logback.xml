@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 只需配置好 log.dir 和 projectname 属性-->
 <configuration debug="false">
-	<property name="log.dir" value="/users/xiaoshuangyi/logs/micro-seed" />
+	<springProperty scope="context" name="log.dir" source="log.dir"/>
 	<property name="projectname" value="micro-seed" />
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<target>System.out</target>
