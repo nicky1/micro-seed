@@ -5,6 +5,8 @@ spring:
   redis:
     host: 192.168.1.5
     port: 6379
-
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/seed
 log:
   dir: /users/xiaoshuangyi/logs/micro-seed
