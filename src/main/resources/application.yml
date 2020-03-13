@@ -10,6 +10,8 @@ spring:
       uri: mongodb://127.0.0.1:27017/seed
   datasource:
     url: jdbc:mysql://cdb-engax7fq.cd.tencentcdb.com:10013/seed?useUnicode=true&characterEncoding=utf-8
+    username: tecent
+    password: yixiaoshuang!
 
 log:
   dir: /users/xiaoshuangyi/logs/micro-seed

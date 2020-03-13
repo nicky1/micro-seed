@@ -39,16 +39,6 @@
         <!--spring boot starter-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-            </exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
@@ -71,6 +61,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-netty</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
         <!--spring boot start end-->
 
@@ -248,7 +244,13 @@
 			<artifactId>easyexcel</artifactId>
 			<version>2.0.5</version>
 		</dependency>
-    </dependencies>
+
+		<dependency>
+			<groupId>cn.yueshutong</groupId>
+			<artifactId>snowjean-spring-boot-starter</artifactId>
+			<version>3.0.0.RELEASE</version>
+		</dependency>
+	</dependencies>
 	<build>
 		<finalName>micro-seed</finalName>
 		<plugins>
