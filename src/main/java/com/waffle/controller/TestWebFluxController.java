@@ -1,6 +1,7 @@
 package com.waffle.controller;
 
 import com.waffle.model.mongodb.Work;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import javax.annotation.Resource;
  * @date 2019-10-11 23:20
  */
 @Controller
+@Slf4j
 public class TestWebFluxController {
 
     @Resource
@@ -27,7 +29,7 @@ public class TestWebFluxController {
     @GetMapping(value = "/api/webflux/test/save")
     public @ResponseBody
     ResponseEntity save() {
-
+        log.info("3333");
         Work work2 = Work.builder().name("张三422234").createTime(System.currentTimeMillis()).build();
         reactiveMongoTemplate.insert(work2).subscribe();
         return ResponseEntity.ok().build();

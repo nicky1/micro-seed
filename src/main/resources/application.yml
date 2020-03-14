@@ -9,9 +9,19 @@ spring:
     mongodb:
       uri: mongodb://127.0.0.1:27017/seed
   datasource:
-    url: jdbc:mysql://cdb-engax7fq.cd.tencentcdb.com:10013/seed?useUnicode=true&characterEncoding=utf-8
     username: tecent
     password: yixiaoshuang!
+    url: jdbc:mysql://cdb-engax7fq.cd.tencentcdb.com:10013/seed?useUnicode=true&characterEncoding=utf-8&useSSL=true
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      idle-timeout: 60000
+      connection-timeout: 60000
+      validation-timeout: 3000
+      login-timeout: 5
+      max-lifetime: 60000
+      minimum-idle: 10
+      maximum-pool-size: 200
 
 log:
   dir: /users/xiaoshuangyi/logs/micro-seed
