@@ -3,17 +3,17 @@ DEPLOY_ENV: test
 #redis config：使用predixy代理访问redis集群
 spring:
   redis:
-    host: 192.168.1.5
+    host: 127.0.0.1
     port: 6379
   data:
     mongodb:
       uri: mongodb://127.0.0.1:27017/seed
   datasource:
     username: tecent
-    password: yixiaoshuang!
-    url: jdbc:mysql://cdb-engax7fq.cd.tencentcdb.com:10013/seed?useUnicode=true&characterEncoding=utf-8&useSSL=true
+    password: yixiaoshuang1
+    url: jdbc:mysql://cdb-engax7fq.cd.tencentcdb.com:10013/seed?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=GMT%2B8
     type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       idle-timeout: 60000
       connection-timeout: 60000
