@@ -28,6 +28,7 @@ public class RedisTemplateConfig {
         template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
         template.setDefaultSerializer(new GenericJackson2JsonRedisSerializer());
         template.setConnectionFactory(lettuceConnectionFactory());
+
         return template;
     }
 
@@ -36,6 +37,7 @@ public class RedisTemplateConfig {
         LettuceConnectionFactory factory = new LettuceConnectionFactory("127.0.0.1",6379);
 //        factory.setPassword(password);
 //        factory.setTimeout(timeout);
+
         return factory;
     }
 }
