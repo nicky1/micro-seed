@@ -9,17 +9,17 @@ public class TestThread {
 		Rabbit thread=new Rabbit();
 		System.out.println(thread instanceof Thread);
 //		thread.start();
-		
+
 //		Class<Rabbit> tmp=Rabbit.class;
 //		System.out.println(tmp);
 //		Constructor[] cons=Class.forName("com.test.j2se.thread.Rabbit").getConstructors();
 //		System.out.println(cons);
-		
-		
+
+
 	}
-	
-	public class B{
-		
+
+	public static class B {
+
 	}
 
 	AtomicInteger atomicInteger = new AtomicInteger(1);
