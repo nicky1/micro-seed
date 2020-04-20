@@ -15,6 +15,10 @@ public class Person {
 
     private String identity;
 
+    public Person() {
+        System.out.println("person");
+    }
+
     public Person(String name, String identity) {
         this.name = name;
         this.identity = identity;

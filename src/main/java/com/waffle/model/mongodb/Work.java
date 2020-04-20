@@ -10,8 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @date 2019-10-11 23:24
  */
 @Document(collection = "work")
-@Data
 @Builder
+@Data
 public class Work {
 
     @Id
@@ -20,4 +20,6 @@ public class Work {
     private String name;
 
     private long createTime;
+
+
 }

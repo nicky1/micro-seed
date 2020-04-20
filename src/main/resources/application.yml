@@ -7,7 +7,7 @@ spring:
     port: 6379
   data:
     mongodb:
-      uri: mongodb://127.0.0.1:27017/seed
+      uri: mongodb://127.0.0.1:28017,127.0.0.1:28018,127.0.0.1:28019/seed?replicaSet=rs0&readPreference=secondaryPreferred
   datasource:
     username: tecent
     password: yixiaoshuang1
