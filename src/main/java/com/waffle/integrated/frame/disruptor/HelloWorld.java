@@ -42,7 +42,7 @@ public class HelloWorld {
         {
             bb.putLong(0, l);
             producer.onData(bb);
-            Thread.sleep(1000);
+//            Thread.sleep(1000);
         }
 
     }

@@ -255,6 +255,11 @@
 			<artifactId>snowjean-spring-boot-starter</artifactId>
 			<version>3.0.0.RELEASE</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.github.ben-manes.caffeine</groupId>
+			<artifactId>caffeine</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>micro-seed</finalName>
