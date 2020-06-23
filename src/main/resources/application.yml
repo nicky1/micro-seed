@@ -2,12 +2,24 @@ DEPLOY_ENV: test
 
 #redis config：使用predixy代理访问redis集群
 spring:
+  rabbitmq:
+    host: 127.0.0.1
+    username: guest
+    password: guest
+    listener:
+      retry:
+        enabled: true
+        max-attempts: 5
+        initial-interval: 2000
+        # consumer多线程消费消息
+  #      concurrency: 10
   redis:
     host: 127.0.0.1
     port: 6379
   data:
     mongodb:
-      uri: mongodb://127.0.0.1:28017,127.0.0.1:28018,127.0.0.1:28019/seed?replicaSet=rs0&readPreference=secondaryPreferred
+      uri: mongodb://127.0.0.1:27017/seed
+  #      uri: mongodb://127.0.0.1:28017,127.0.0.1:28018,127.0.0.1:28019/seed?replicaSet=rs0&readPreference=secondaryPreferred
   datasource:
     username: tecent
     password: yixiaoshuang1
