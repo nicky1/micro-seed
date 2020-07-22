@@ -5,8 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 
 /**
  * @Author: yixiaoshuang
@@ -18,11 +16,6 @@ public class TestArrayList{
 
   public static void main(String[] args) {
 
-      List list = Lists.newArrayList();
-
-      String s =new String("a");
-
-      s = new String("d");
 
       LinkedList linkedList = Lists.newLinkedList();
       linkedList.add(1);
@@ -30,13 +23,15 @@ public class TestArrayList{
       linkedList.add(0);
 
 
-      linkedList.stream().forEach(v ->{
-          log.info("data : {}",v);
+      linkedList.stream().forEach(v -> {
+          log.info("data : {}", v);
       });
 
-      ConcurrentMap map = new ConcurrentHashMap();
+      List list = Lists.newArrayList(1, 5, 2, 8, 4);
+      System.out.println(list);
 
-
+      list.add(3, 3);
+      System.out.println(list);
 
   }
 
