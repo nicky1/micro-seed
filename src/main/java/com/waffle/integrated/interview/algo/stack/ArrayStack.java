@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * @author: xiaoshuangyi
+ * @author yixiaoshuang
  * @Date: 2019-03-24 15:12
  * @Description:数组实现栈
  */

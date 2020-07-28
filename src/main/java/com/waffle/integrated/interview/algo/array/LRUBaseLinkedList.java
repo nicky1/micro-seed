@@ -38,7 +38,6 @@ public class LRUBaseLinkedList<T> {
         // 链表中存在,删除原数据,即删除preNode节点下一个元素，再插入到头部,
         if (null != preNode) {
             deleteElementOptim(preNode);
-            insertElemAtBegin(t);
         } else {
             // 链表容量超限,则删除尾部节点
             if (length > this.capacity) {
@@ -46,8 +45,8 @@ public class LRUBaseLinkedList<T> {
             }
 
             // 链表中不存在且未超限,则将新数据放到链表头部
-            insertElemAtBegin(t);
         }
+        insertElemAtBegin(t);
 
     }
 
