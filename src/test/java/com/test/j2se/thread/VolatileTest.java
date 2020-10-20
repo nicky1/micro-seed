@@ -3,6 +3,7 @@ package com.test.j2se.thread;
 /**
  * 测试volatile关键字
  * 内存可见性测试
+ * https://dzone.com/articles/java-volatile-keyword-0
  * ChangeMaker每隔0.5秒增加COUNTER的值,到5结束。
  * ChangeListener忙等待监听COUNTER值的变化
  *

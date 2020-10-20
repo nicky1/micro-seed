@@ -104,4 +104,19 @@ public class TestMemory extends TestCase {
 		
 		
 	}
+
+	public static void t1(Integer a,Person p ){
+		a+=10;
+		p.setAge(p.getAge()+10);
+	}
+
+	public static void main(String[] args) {
+		Integer t = 10;
+
+		Person p = new Person();
+		p.setAge(20);
+		t1(t,p);
+
+		System.out.println(t+";"+p.getAge());
+	}
 }
