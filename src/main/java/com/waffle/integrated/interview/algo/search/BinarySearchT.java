@@ -35,7 +35,7 @@ public class BinarySearchT {
     }
 
     /**
-     * 查找指定元素在数组中出现的第一个位置
+     * 查找数组中第一个等于给定值的下标
      */
     public static int firstBsearch(int a[], int n, int value) {
         int high = n - 1;
@@ -61,7 +61,7 @@ public class BinarySearchT {
     }
 
     /**
-     * 查找指定元素在数组中出现的最后一个位置
+     * 查找数组中最后一个等于给定值的下标
      */
     public static int lastBsearch(int a[], int n, int value) {
         int high = n - 1;
@@ -86,9 +86,57 @@ public class BinarySearchT {
         return -1;
     }
 
+    /**
+     * 查找数组中第一个大于或等于给定值的下标
+     */
+    public static int firstGtBsearch(int a[], int n, int value) {
+        int high = n - 1;
+        int low = 0;
+        int step = 0;
+        while (low <= high) {
+            step++;
+            System.out.println("一共循环了 " + step + "次");
+            int mid = low + ((high - low) >> 1);
+            if (a[mid] >= value) {
+                if (mid == 0 || (a[mid - 1] < value)) {
+                    return mid ;
+                }
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 查找数组中最后一个小于或等于给定值的下标
+     */
+    public static int lastLtBsearch(int a[], int n, int value) {
+        int high = n - 1;
+        int low = 0;
+        int step = 0;
+        while (low <= high) {
+            step++;
+            System.out.println("一共循环了 " + step + "次");
+            int mid = low + ((high - low) >> 1);
+            if (a[mid] <= value) {
+                if (mid == n-1 || (a[mid + 1] > value)) {
+                    return mid ;
+                }
+                low = mid + 1;
+            } else {
+                high=mid - 1;
+            }
+        }
+        return -1;
+    }
+
+
+
     public static void main(String[] args) {
-        int[] a = new int[]{1, 3, 5, 5, 9, 11, 22, 33, 33, 33, 43, 67};
-        int index = lastBsearch(a, a.length, 33);
+        int[] a = new int[]{1, 3, 5, 5, 9, 22, 22, 33, 34, 34, 43, 67};
+        int index = lastLtBsearch(a, a.length, 32);
         System.out.println(index);
     }
 }
