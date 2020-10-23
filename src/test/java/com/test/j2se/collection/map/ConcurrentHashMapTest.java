@@ -4,6 +4,7 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import junit.framework.TestCase;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.HashMap;
 import java.util.concurrent.*;
 
 @Slf4j
