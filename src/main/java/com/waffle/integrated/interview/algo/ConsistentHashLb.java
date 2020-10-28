@@ -44,6 +44,9 @@ public class ConsistentHashLb {
 //        init2(nodes);
     }
 
+    /**
+     * 初始化机器节点到环上-使用MD5计算hash值
+     */
     private void init(List<String> nodes) {
         for (String node : nodes) {
             for (int i = 0; i < numberOfReplicas / 4; i++) {
@@ -57,6 +60,9 @@ public class ConsistentHashLb {
         }
     }
 
+    /**
+     * 初始化机器节点到环上-使用FNV1_32计算hash值
+     */
     private void init2(List<String> nodes) {
         for (String node : nodes) {
             for (int j = 0; j < numberOfReplicas; j++) {
