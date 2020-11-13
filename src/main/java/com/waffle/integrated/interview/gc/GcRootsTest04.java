@@ -1,7 +1,7 @@
 package com.waffle.integrated.interview.gc;
 
 /**
- * GCRoots测试-方法区
+ * GCRoots测试-方法区常量引用对象作为GC Roots
  * https://blog.csdn.net/u010798968/article/details/72835255
  * 方法区存储的是 类信息，常量，静态变量。即时编译器编译后的代码。
  * <p>
@@ -10,24 +10,22 @@ package com.waffle.integrated.interview.gc;
  * @author yixiaoshuang
  * @date 2020/11/12 21:56
  */
-public class GcRootsTest02 {
-    private static  int _10MB = 10 * 1024 * 1024;
+public class GcRootsTest04 {
+    private static final int _10MB = 10 * 1024 * 1024;
 
-    private  byte[] memory;
+    private byte[] memory;
 
-    public GcRootsTest02() {
+    private static final GcRootsTest04 t = new GcRootsTest04(5 * _10MB);
+
+    public GcRootsTest04() {
     }
 
-    public GcRootsTest02(int size) {
+    public GcRootsTest04(int size) {
         memory = new byte[size];
-
     }
 
     public static void main(String[] args) {
-        GcRootsTest02 test = new GcRootsTest02(2 * _10MB);
-
-        test = null;
-        // test主动置为NULL,full gc 会回收test对象占用的内存 [ParOldGen: 8K->1852K(524288K)] 1966K->1852K(983040K)
+        // t对象 static final 为常量引用对象，不会被回收
         System.gc();
 
     }
