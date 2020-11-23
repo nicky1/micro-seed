@@ -10,6 +10,8 @@ package com.waffle.integrated.interview.gc;
  * @date 2020/11/12 21:56
  */
 public class GcRootsTest01 {
+
+
     private int _10MB = 10 * 1024 * 1024;
 
     private byte[] memory = new byte[8 * _10MB];

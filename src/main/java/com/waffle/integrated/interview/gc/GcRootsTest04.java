@@ -25,7 +25,7 @@ public class GcRootsTest04 {
     }
 
     public static void main(String[] args) {
-        // t对象 static final 为常量引用对象，不会被回收
+        // t对象 static final 为类常量引用对象，不会被回收
         System.gc();
 
     }
