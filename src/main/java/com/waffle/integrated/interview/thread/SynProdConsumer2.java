@@ -16,58 +16,58 @@ public class SynProdConsumer2 {
     public static void main(String[] args) {
         Data2 data = new Data2();
         new Thread(() -> {
-            for (int i = 0; i < 10; i++){
+            for (int i = 0; i < 10; i++) {
                 try {
                     data.increment();
                 } catch (InterruptedException e) {
 
                 }
             }
-        },"A").start();
+        }, "A").start();
 
         new Thread(() -> {
-            for (int i = 0; i < 10; i++){
+            for (int i = 0; i < 10; i++) {
                 try {
                     data.increment();
                 } catch (InterruptedException e) {
 
                 }
             }
-        },"A2").start();
+        }, "A2").start();
 
         new Thread(() -> {
-            for (int i = 0; i < 10; i++){
+            for (int i = 0; i < 10; i++) {
                 try {
                     data.decrement();
                 } catch (InterruptedException e) {
 
                 }
             }
-        },"B").start();
+        }, "B").start();
 
         new Thread(() -> {
-            for (int i = 0; i < 10; i++){
+            for (int i = 0; i < 10; i++) {
                 try {
                     data.decrement();
                 } catch (InterruptedException e) {
 
                 }
             }
-        },"B2").start();
+        }, "B2").start();
     }
 
 }
 
-class  Data2{
+class Data2 {
     private int count;
 
     public void increment() throws InterruptedException {
-        synchronized (this){
+        synchronized (this) {
             while (count !=0){
                 this.wait();
             }
             count++;
-            System.out.println("thread:"+Thread.currentThread().getName()+";count="+count);
+            System.out.println("thread:" + Thread.currentThread().getName() + ";count=" + count);
             this.notifyAll();
         }
     }
@@ -78,7 +78,7 @@ class  Data2{
                 this.wait();
             }
             count--;
-            System.out.println("thread:"+Thread.currentThread().getName()+";count="+count);
+            System.out.println("thread:" + Thread.currentThread().getName() + ";count=" + count);
             this.notifyAll();
         }
     }
