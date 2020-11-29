@@ -1,21 +1,20 @@
 package com.waffle.integrated.interview.thread;
 
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * 多线程环境下的经典问题-生产者和消费者问题
- * 使用if会产生虚假唤醒的问题。使用while解决
- * 1.if条件判断只会执行一次
- * 2.while循环会在循环内执行完成后,再检查一遍while的限制条件,这样能保证的逻辑的正确性。
- * 3.在上一个测试代码中，只有1个生产者，1个消费者。这时能达到预期的目的,即生成和消费不会错乱
- * 4.如果有多个生产者和消费者呢？这时发现count值有大于1的。这时要使用while循环。
- * 5.在资源类中实现线程安全常规流程：判断条件---->执行---->通知
+ * 1.使用lock以及condition实现生产者和消费者场景。
  *
  * @author yixiaoshuang
  * @date 2020/11/29 18:10
  */
-public class SynProdConsumer2 {
+public class LockProdConsumer {
 
     public static void main(String[] args) {
-        Data2 data = new Data2();
+        Data3 data = new Data3();
         new Thread(() -> {
             for (int i = 0; i < 10; i++) {
                 try {
@@ -25,6 +24,7 @@ public class SynProdConsumer2 {
                 }
             }
         }, "A").start();
+
 
         new Thread(() -> {
             for (int i = 0; i < 10; i++) {
@@ -45,7 +45,6 @@ public class SynProdConsumer2 {
                 }
             }
         }, "C").start();
-
         new Thread(() -> {
             for (int i = 0; i < 10; i++) {
                 try {
@@ -59,28 +58,39 @@ public class SynProdConsumer2 {
 
 }
 
-class Data2 {
+class Data3 {
     private int count;
 
+    private Lock lock = new ReentrantLock();
+    // 使用Condition替代Object的wait和notify
+    private Condition condition = lock.newCondition();
+
     public void increment() throws InterruptedException {
-        synchronized (this) {
+        lock.lock();
+        try {
             while (count !=0){
-                this.wait();
+                condition.await();
             }
             count++;
             System.out.println("thread:" + Thread.currentThread().getName() + ";count=" + count);
-            this.notifyAll();
+            condition.signalAll();
+        }finally {
+            lock.unlock();
         }
     }
 
     public void decrement() throws InterruptedException {
-        synchronized (this) {
+        lock.lock();
+        try {
             while (count == 0){
-                this.wait();
+                condition.await();
             }
             count--;
             System.out.println("thread:" + Thread.currentThread().getName() + ";count=" + count);
-            this.notifyAll();
+            condition.signalAll();
+        }finally {
+            lock.unlock();
         }
+
     }
 }
