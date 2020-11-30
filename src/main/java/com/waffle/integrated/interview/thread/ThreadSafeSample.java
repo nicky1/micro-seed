@@ -4,7 +4,7 @@ package com.waffle.integrated.interview.thread;
  * @author yixiaoshuang
  * @date 2020/11/26 22:47
  */
-public class ThreadSafeSimple {
+public class ThreadSafeSample {
 
     public int counter = 1;
 
@@ -32,7 +32,7 @@ public class ThreadSafeSimple {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        ThreadSafeSimple simple = new ThreadSafeSimple();
+        ThreadSafeSample simple = new ThreadSafeSample();
 
         Thread t1 = new Thread(() -> simple.safeAction());
 

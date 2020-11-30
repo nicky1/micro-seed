@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2020/11/30 17:53
  */
 @Slf4j
-public class DeadLockSimple {
+public class DeadLockSample {
 
     public static void main(String[] args) throws Exception{
         String lockA = "lockA";
