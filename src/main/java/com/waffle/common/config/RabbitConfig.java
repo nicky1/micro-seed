@@ -3,7 +3,6 @@ package com.waffle.common.config;
 import com.waffle.integrated.frame.rabbitmq.QueueNames;
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * rabbitMq configuration
@@ -11,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * @author yixiaoshuang
  * @date 2020/5/23 21:29
  */
-@Configuration
+//@Configuration
 public class RabbitConfig {
 
     @Bean
