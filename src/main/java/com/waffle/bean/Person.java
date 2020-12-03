@@ -17,10 +17,12 @@ public class Person {
 
     public Person() {
         System.out.println("person");
+        this.name = "hello" + name;
     }
 
     public Person(String name, String identity) {
         this.name = name;
         this.identity = identity;
     }
+
 }
