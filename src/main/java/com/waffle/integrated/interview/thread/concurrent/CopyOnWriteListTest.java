@@ -28,10 +28,10 @@ public class CopyOnWriteListTest {
 //            }, String.valueOf(i)).start();
 //        }
 
-        // 使用线程安全的CopyOnWriteArrayList
+        // 使用线程安全的CopyOnWriteArrayList:使用了ReentrantLock锁，
         List<String> list2 = Lists.newCopyOnWriteArrayList();
         for (int i = 0; i < 10; i++) {
-            new Thread(()->{
+            new Thread(() -> {
                 list2.add(UUID.randomUUID().toString().substring(0, 7));
                 System.out.println(list2);
             }).start();
