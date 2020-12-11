@@ -14,24 +14,22 @@ public class SafeLazyMode {
         System.out.println("构造方法执行:" + Thread.currentThread().getName() + "ok");
     }
 
-    private static SafeLazyMode INSTANCE = null;
+    private volatile static SafeLazyMode INSTANCE = null;
 
     public static SafeLazyMode getInstance() {
+        // 双重检测锁
         if (Objects.isNull(INSTANCE)) {
-            INSTANCE = new SafeLazyMode();
+            synchronized (SafeLazyMode.class){
+                if (Objects.isNull(INSTANCE)){
+                    // 多线程下,new操作并不是原子操作
+                    INSTANCE = new SafeLazyMode();
+                }
+            }
         }
         return INSTANCE;
     }
 
     public static void main(String[] args) {
-        // 单线程模式下
-//        LazyMode instance = LazyMode.getInstance();
-//        LazyMode instance2 = LazyMode.getInstance();
-
-//        System.out.println(instance);
-//        System.out.println(instance2);
-
-        // 多线程模式下:LazyMode可能会被初始化多次,不能达到单例的目的。
         for (int i = 0; i < 10; i++) {
             new Thread(() -> SafeLazyMode.getInstance()).start();
         }

@@ -25,15 +25,12 @@ public class LazyMode {
 
     public static void main(String[] args) {
         // 单线程模式下
-//        LazyMode instance = LazyMode.getInstance();
-//        LazyMode instance2 = LazyMode.getInstance();
+        LazyMode instance = LazyMode.getInstance();
+        LazyMode instance2 = LazyMode.getInstance();
 
-//        System.out.println(instance);
-//        System.out.println(instance2);
+        System.out.println(instance);
+        System.out.println(instance2);
 
-        // 多线程模式下:LazyMode可能会被初始化多次,不能达到单例的目的。
-        for (int i = 0; i < 10; i++) {
-            new Thread(() -> LazyMode.getInstance()).start();
-        }
+
     }
 }

@@ -1,5 +1,7 @@
 package com.waffle.integrated.interview.thread;
 
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -12,11 +14,15 @@ public class Counter {
 
     public static void main(String[] args) throws InterruptedException {
         CtCounter counter = new CtCounter();
-        Thread t1 = new Thread(counter::add);
-        Thread t2 = new Thread(counter::add);
+//        Thread t1 = new Thread(counter::add);
+//        Thread t2 = new Thread(counter::add);
+
+        Thread t1 = new Thread(counter::add3);
+        Thread t2 = new Thread(counter::add3);
 
         t1.start();
         t2.start();
+
         t1.join();
         t2.join();
 
@@ -32,6 +38,12 @@ class CtCounter{
 
     private int count;
 
+    private AtomicInteger atomicInteger = new AtomicInteger(0);
+
+    public volatile int a;
+
+    private AtomicIntegerFieldUpdater updater = AtomicIntegerFieldUpdater.newUpdater(CtCounter.class,"a");
+
     public void add(){
         lock.lock();
         try {
@@ -42,10 +54,30 @@ class CtCounter{
             lock.unlock();
         }
     }
+
+    public void add2(){
+        for (int i = 0; i < 100000; i++) {
+            count++;
+        }
+    }
+
+    // 使用AtomicInteger保证原子性
+    public void add3(){
+        for (int i = 0; i < 100000; i++) {
+            atomicInteger.getAndIncrement();
+        }
+    }
+
+    public void add4() {
+
+    }
+
     public void print(){
-        System.out.println(count);
+        System.out.println(atomicInteger.get());
     }
 
 }
+
+
 
 
