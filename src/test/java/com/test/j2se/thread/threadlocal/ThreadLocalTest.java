@@ -24,8 +24,8 @@ public class ThreadLocalTest extends TestCase {
         TestClient t2=new TestClient(sn);
         TestClient t3=new TestClient(sn);
         t1.start();
-//        t2.start();
-//        t3.start();
+        t2.start();
+        t3.start();
     }
 
     private static class TestClient extends Thread{
