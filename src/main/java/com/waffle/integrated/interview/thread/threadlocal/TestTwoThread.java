@@ -1,4 +1,4 @@
-package com.test.j2se.thread.threadlocal;
+package com.waffle.integrated.interview.thread.threadlocal;
 
 public class TestTwoThread {
 

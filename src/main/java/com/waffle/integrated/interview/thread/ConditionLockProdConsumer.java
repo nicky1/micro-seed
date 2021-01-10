@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author yixiaoshuang
  * @date 2020/11/29 18:10
  */
-public class LockProdConsumer {
+public class ConditionLockProdConsumer {
 
     public static void main(String[] args) {
         Data3 data = new Data3();

@@ -1,9 +1,8 @@
-package com.test.j2se.thread.threadlocal;
+package com.waffle.integrated.interview.thread.threadlocal;
 
-import junit.framework.TestCase;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
-public class ThreadLocalTest extends TestCase {
+public class ThreadLocalTest  {
 
     //1.通过匿名内部类覆盖ThreadLocal的initialValue方法,指定初始值
     private ThreadLocal<Integer> seqNum=new ThreadLocal<Integer>(){

@@ -1,8 +1,7 @@
 package com.waffle.controller;
 
 import com.google.common.collect.Lists;
-import com.waffle.integrated.frame.rabbitmq.QueueNames;
-import com.waffle.integrated.frame.rabbitmq.Sender;
+import com.waffle.service.SpringIocServiceTest1;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,11 +19,11 @@ import java.util.List;
 public class TestController {
 
     @Resource
-    private Sender sender;
+    private SpringIocServiceTest1 springIocServiceTest1;
 
     @GetMapping(value = "/api/test/mq/ack")
     public ResponseEntity mqLongAck(@RequestParam String content) {
-        sender.send(QueueNames.longAckQueue, content);
+//        sender.send(QueueNames.longAckQueue, content);
         return ResponseEntity.ok().build();
     }
 
@@ -51,6 +50,16 @@ public class TestController {
                 }
             }
         }).start();
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping(value = "/api/pub/t/bean")
+    public ResponseEntity getBean() {
+//        String name = userTestBean.getTheName();
+//        System.out.println("name:{}" + name);
+
+        springIocServiceTest1.test1();
+
         return ResponseEntity.ok().build();
     }
 }
