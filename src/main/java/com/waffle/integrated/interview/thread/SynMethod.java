@@ -10,5 +10,14 @@ public class SynMethod {
         System.out.println("test");
     }
 
+    public void m(){
+        synchronized (this){
 
+        }
+    }
+
+
+    public static void main(String[] args) {
+
+    }
 }

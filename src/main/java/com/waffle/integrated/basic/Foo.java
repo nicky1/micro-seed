@@ -7,11 +7,11 @@ package com.waffle.integrated.basic;
 public class Foo {
 
     public static void main(String[] args) {
-        boolean flag = true;
-        if (flag){
+        boolean flag = false;
+        if (!flag){
             System.out.println("hello java");
         }
-        if (flag == true){
+        if (flag != true){
             System.out.println("hello jvm");
         }
 
