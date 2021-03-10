@@ -41,8 +41,24 @@ public class TestThread {
 //        log.info((a2 == c2)+"");
 
 
+        Thread thread = new Thread(new WT());
+
+        thread.start();
+
+    }
 
 
+}
 
+
+class WT implements Runnable {
+
+    @Override
+    public void run() {
+        System.out.println("111111111");
+
+        while (true){
+            System.out.println("2222");
+        }
     }
 }
