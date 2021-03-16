@@ -20,6 +20,8 @@ public class ThreadPoolTest {
 
         executorService.execute(t1);
 
+        executorService.shutdown();
+
 
     }
 

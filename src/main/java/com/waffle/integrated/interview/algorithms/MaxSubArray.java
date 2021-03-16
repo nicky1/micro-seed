@@ -29,7 +29,7 @@ public class MaxSubArray {
     }
 
     public static void main(String[] args) {
-        List<Integer> nums = Lists.newArrayList(-2, -11, -3, -4, -12, -2, -13, -5, -4);
+        List<Integer> nums = Lists.newArrayList(-2, 11, 3, -4, -12, -2, -13, -5, -4);
         int max = calculate(nums);
 
         log.info("max:{}", max);
