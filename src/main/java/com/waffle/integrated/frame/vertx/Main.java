@@ -11,12 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 public class Main {
     public static void main(String[] args) {
         Vertx v = Vertx.vertx();
-        v.deployVerticle(MyFirstVerticle.class.getName(),res->{
-            log.info(res.succeeded()+"");
+        v.deployVerticle(MyFirstVerticle.class.getName(), res -> {
+            log.info(res.succeeded() + "");
         });
-
-
-
 
 
     }

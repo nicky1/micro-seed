@@ -8,7 +8,7 @@ package com.waffle.service;
 public interface CacheTestService {
     String get(Integer id);
 
-    void save(Integer id,String name);
+    void save(Integer id, String name);
 
     void delete(Integer id);
 }

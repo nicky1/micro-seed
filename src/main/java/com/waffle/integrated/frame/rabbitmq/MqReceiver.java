@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MqReceiver {
 
-//    @RabbitHandler
+    //    @RabbitHandler
 //    @RabbitListener(queues = {QueueNames.longAckQueue})
     public void testLongTimeAck(String content) {
         log.info("content:{}", content);

@@ -11,12 +11,12 @@ import javax.annotation.PreDestroy;
 @Service
 public class SpringIocServiceTest1 {
 
-    public void test1(){
+    public void test1() {
         System.out.println("test1");
     }
 
     @PreDestroy
-    public void destroy(){
+    public void destroy() {
         System.out.println("destroy");
     }
 }

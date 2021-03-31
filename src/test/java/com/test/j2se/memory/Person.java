@@ -2,39 +2,42 @@ package com.test.j2se.memory;
 
 import java.io.Serializable;
 
-public class Person implements Serializable{
+public class Person implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	String name;
-	
-	Person friend;
-	
-	public static final int p=0;
-	
-	int age=20;
-	
-	public static void testStatic(){
-		System.out.println("static method initing");
-	}
-	
-	public Person(){};
-	
-	public Person(String name){
-		super();
-		this.name=name;
-	}
-	
-	public void change(Person person){
-		person=new Person();
-		person.age=30;
-	}
+    String name;
 
-	public int getAge() {
-		return age;
-	}
+    Person friend;
 
-	public void setAge(int age) {
-		this.age = age;
-	}
+    public static final int p = 0;
+
+    int age = 20;
+
+    public static void testStatic() {
+        System.out.println("static method initing");
+    }
+
+    public Person() {
+    }
+
+    ;
+
+    public Person(String name) {
+        super();
+        this.name = name;
+    }
+
+    public void change(Person person) {
+        person = new Person();
+        person.age = 30;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 }

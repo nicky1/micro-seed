@@ -48,15 +48,15 @@ import java.util.Map.Entry;
 @Slf4j
 public class Http4ClientUtil {
 
-    static final int                   timeOut    = 10 * 1000;
+    static final int timeOut = 10 * 1000;
 
     private static CloseableHttpClient httpClient = null;
 
-    private final static Object        syncLock   = new Object();
+    private final static Object syncLock = new Object();
 
-    private static SSLContext          ctx        = null;
+    private static SSLContext ctx = null;
 
-    private static HostnameVerifier    verifier   = null;
+    private static HostnameVerifier verifier = null;
 
     private static class DefaultTrustManager implements X509TrustManager {
         @Override
@@ -77,7 +77,7 @@ public class Http4ClientUtil {
 
         try {
             ctx = SSLContext.getInstance("TLS");
-            ctx.init(new KeyManager[0], new TrustManager[] { new DefaultTrustManager() }, new SecureRandom());
+            ctx.init(new KeyManager[0], new TrustManager[]{new DefaultTrustManager()}, new SecureRandom());
 
             ctx.getClientSessionContext().setSessionTimeout(15);
             ctx.getClientSessionContext().setSessionCacheSize(1000);
@@ -104,7 +104,7 @@ public class Http4ClientUtil {
 
     /**
      * 获取HttpClient对象
-     * 
+     *
      * @return
      */
     public static CloseableHttpClient getHttpClient(String url) {
@@ -131,14 +131,14 @@ public class Http4ClientUtil {
 
     /**
      * 创建HttpClient对象
-     * 
+     *
      * @return
      */
     public static CloseableHttpClient createHttpClient(int maxTotal, int maxPerRoute, int maxRoute, String hostname,
                                                        int port, final String url) {
         ConnectionSocketFactory plainsf = PlainConnectionSocketFactory.getSocketFactory();
 
-        Registry<ConnectionSocketFactory> registry = RegistryBuilder.<ConnectionSocketFactory> create()
+        Registry<ConnectionSocketFactory> registry = RegistryBuilder.<ConnectionSocketFactory>create()
                 .register("http", plainsf).register("https", getSslFactory()).build();
         PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager(registry);
         // 将最大连接数增加
@@ -198,8 +198,8 @@ public class Http4ClientUtil {
      * @param url
      * @param :json格式
      * @return
-     * @author SHANHY
      * @throws IOException
+     * @author SHANHY
      * @create 2015年12月18日
      */
     public static String postJson(String url, String params) throws IOException {
@@ -229,7 +229,7 @@ public class Http4ClientUtil {
             log.error("postXml", e);
             throw new RuntimeException(e);
         } finally {
-            if (null != response){
+            if (null != response) {
                 try {
                     response.close();
                 } catch (IOException e) {
@@ -279,7 +279,7 @@ public class Http4ClientUtil {
             log.error("异常:{}", e);
         } finally {
             try {
-                if (response != null){
+                if (response != null) {
                     response.close();
                 }
             } catch (Exception e) {
@@ -307,7 +307,7 @@ public class Http4ClientUtil {
             log.error("post异常, url=" + url + " exception:", e);
         } finally {
             try {
-                if (response != null){
+                if (response != null) {
                     response.close();
                 }
             } catch (Exception e) {
@@ -316,10 +316,6 @@ public class Http4ClientUtil {
         }
         return null;
     }
-
-
-
-
 
 
 }

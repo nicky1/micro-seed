@@ -17,8 +17,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableCaching
 public class WaffleApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(WaffleApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(WaffleApplication.class, args);
+    }
 
 }

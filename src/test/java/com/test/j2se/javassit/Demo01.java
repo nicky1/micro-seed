@@ -6,7 +6,7 @@ package com.test.j2se.javassit;
 //import javassist.Modifier;
 
 public class Demo01 {
-	
+
 //	CtClass ct=null;
 //	
 //	@Before
@@ -57,5 +57,5 @@ public class Demo01 {
 //		o.setAge(200);
 //		
 //	}
-	
+
 }

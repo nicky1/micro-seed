@@ -12,27 +12,27 @@ import java.util.List;
  * @Description:
  */
 @Slf4j
-public class TestArrayList{
+public class TestArrayList {
 
-  public static void main(String[] args) {
-
-
-      LinkedList linkedList = Lists.newLinkedList();
-      linkedList.add(1);
-      linkedList.add(3);
-      linkedList.add(0);
+    public static void main(String[] args) {
 
 
-      linkedList.stream().forEach(v -> {
-          log.info("data : {}", v);
-      });
+        LinkedList linkedList = Lists.newLinkedList();
+        linkedList.add(1);
+        linkedList.add(3);
+        linkedList.add(0);
 
-      List list = Lists.newArrayList(1, 5, 2, 8, 4);
-      System.out.println(list);
 
-      list.add(3, 3);
-      System.out.println(list);
+        linkedList.stream().forEach(v -> {
+            log.info("data : {}", v);
+        });
 
-  }
+        List list = Lists.newArrayList(1, 5, 2, 8, 4);
+        System.out.println(list);
+
+        list.add(3, 3);
+        System.out.println(list);
+
+    }
 
 }

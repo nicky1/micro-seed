@@ -7,61 +7,60 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * 阻塞队列实现生产者和消费者模式
- * @author Administrator
  *
+ * @author Administrator
  */
-public class QueueTest extends TestCase{
+public class QueueTest extends TestCase {
 
     public static void main(String[] args) {
 
-        BlockingQueue queue=new LinkedBlockingDeque();
-        Thread prod=new Thread(new Producer(queue));
-        Thread  cus=new Thread(new Customer(queue));
+        BlockingQueue queue = new LinkedBlockingDeque();
+        Thread prod = new Thread(new Producer(queue));
+        Thread cus = new Thread(new Customer(queue));
         prod.start();
         cus.start();
     }
 
 }
 
-class Producer implements Runnable{
+class Producer implements Runnable {
 
     private BlockingQueue queue;
-    
-    public Producer(BlockingQueue queue){
-        this.queue=queue;
+
+    public Producer(BlockingQueue queue) {
+        this.queue = queue;
     }
-    
+
     @Override
     public void run() {
-        for(int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             try {
-                System.out.println("produced----"+i);
+                System.out.println("produced----" + i);
                 queue.put(i);
-            }
-            catch (InterruptedException e) {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
 }
 
-class Customer implements Runnable{
+class Customer implements Runnable {
 
     private BlockingQueue queue;
-    
-    public Customer(BlockingQueue queue){
-        this.queue=queue;
+
+    public Customer(BlockingQueue queue) {
+        this.queue = queue;
     }
+
     @Override
     public void run() {
-        while(true){
+        while (true) {
             try {
-                System.out.println("customer------"+queue.take());
-            }
-            catch (InterruptedException e) {
+                System.out.println("customer------" + queue.take());
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
-    
+
 }

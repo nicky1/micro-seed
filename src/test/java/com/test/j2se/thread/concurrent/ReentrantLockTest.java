@@ -15,7 +15,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ReentrantLockTest extends Thread {
 
     private ReentrantLock lock = new ReentrantLock();
-    private  static Integer i = 0;
+    private static Integer i = 0;
 
     public ReentrantLockTest(String name) {
         super.setName(name);

@@ -8,95 +8,95 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 /**
  * 测试重写tostring，equals，hashcode，compare方法
  * 使用ToStringBuilder,HashCodeBuilder等。
- * @author Nick
  *
+ * @author Nick
  */
 public class Car {
 
-	private String name;
-	
-	private String model;
-	
-	private String serial;
-	
-	private String owner;
-	
-	private int year;
+    private String name;
 
-	public Car() {
-		super();
-	}
+    private String model;
 
-	public Car(String name, String model, String serial, String owner, int year) {
-		super();
-		this.name = name;
-		this.model = model;
-		this.serial = serial;
-		this.owner = owner;
-		this.year = year;
-	}
+    private String serial;
 
-	public String getName() {
-		return name;
-	}
+    private String owner;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    private int year;
 
-	public String getModel() {
-		return model;
-	}
+    public Car() {
+        super();
+    }
 
-	public void setModel(String model) {
-		this.model = model;
-	}
+    public Car(String name, String model, String serial, String owner, int year) {
+        super();
+        this.name = name;
+        this.model = model;
+        this.serial = serial;
+        this.owner = owner;
+        this.year = year;
+    }
 
-	public String getSerial() {
-		return serial;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setSerial(String serial) {
-		this.serial = serial;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getOwner() {
-		return owner;
-	}
+    public String getModel() {
+        return model;
+    }
 
-	public void setOwner(String owner) {
-		this.owner = owner;
-	}
+    public void setModel(String model) {
+        this.model = model;
+    }
 
-	public int getYear() {
-		return year;
-	}
+    public String getSerial() {
+        return serial;
+    }
 
-	public void setYear(int year) {
-		this.year = year;
-	}
+    public void setSerial(String serial) {
+        this.serial = serial;
+    }
 
-	@Override
-	public int hashCode() {
-		return new HashCodeBuilder(3,17).append(name).append(model).toHashCode();
-	}
+    public String getOwner() {
+        return owner;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		boolean equals=false;
-		if(obj.getClass()== Car.class){
-			Car carBean=(Car) obj;
-			equals=new EqualsBuilder().append(name, carBean.name)
-						.append(model, carBean.model).isEquals();
-		}
-		return equals;
-	}
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
 
-	@Override
-	public String toString() {
-		return new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE).append("name",name)
-				.append("model",model).append("serial",serial).append("year",year).toString();
-	}
-	
-	
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(3, 17).append(name).append(model).toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean equals = false;
+        if (obj.getClass() == Car.class) {
+            Car carBean = (Car) obj;
+            equals = new EqualsBuilder().append(name, carBean.name)
+                    .append(model, carBean.model).isEquals();
+        }
+        return equals;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.DEFAULT_STYLE).append("name", name)
+                .append("model", model).append("serial", serial).append("year", year).toString();
+    }
+
+
 }

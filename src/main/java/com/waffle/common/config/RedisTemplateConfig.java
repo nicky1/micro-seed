@@ -18,7 +18,7 @@ import java.io.Serializable;
 public class RedisTemplateConfig {
 
     @Bean
-    public RedisTemplate<String,Serializable> redisTemplate(){
+    public RedisTemplate<String, Serializable> redisTemplate() {
 
         RedisTemplate<String, Serializable> template = new RedisTemplate<>();
         template.setKeySerializer(new StringRedisSerializer());
@@ -31,7 +31,7 @@ public class RedisTemplateConfig {
 
     @Bean
     public LettuceConnectionFactory lettuceConnectionFactory() {
-        LettuceConnectionFactory factory = new LettuceConnectionFactory("127.0.0.1",6379);
+        LettuceConnectionFactory factory = new LettuceConnectionFactory("127.0.0.1", 6379);
 //        factory.setPassword(password);
 //        factory.setTimeout(timeout);
 

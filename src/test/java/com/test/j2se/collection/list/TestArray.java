@@ -20,15 +20,15 @@ public class TestArray {
         list.add(2);
         list.add(4);
 
-        for (Integer i : list){
-            log.info("i:{}",i);
+        for (Integer i : list) {
+            log.info("i:{}", i);
         }
 
         log.info("\n");
-        list.add(2,10);
+        list.add(2, 10);
 
-        for (Integer i : list){
-            log.info("j:{}",i);
+        for (Integer i : list) {
+            log.info("j:{}", i);
         }
     }
 }

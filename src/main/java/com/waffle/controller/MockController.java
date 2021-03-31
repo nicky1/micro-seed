@@ -33,28 +33,27 @@ public class MockController {
     private StringRedisTemplate stringRedisTemplate;
 
     @Resource
-    private RedisTemplate<String,Serializable> redisTemplate;
+    private RedisTemplate<String, Serializable> redisTemplate;
 
-    private LoadingCache<String,String> cache = CacheBuilder.newBuilder()
+    private LoadingCache<String, String> cache = CacheBuilder.newBuilder()
             .maximumSize(30)
             .expireAfterWrite(100, TimeUnit.SECONDS)
             .build(new CacheLoader<String, String>() {
                 @Override
-                public String load (String key) throws Exception {
-                    return key+"-load-test";
+                public String load(String key) throws Exception {
+                    return key + "-load-test";
                 }
             });
 
 
-
-    @RequestMapping(value = "/ribbon/test" , method = RequestMethod.GET)
-    public String testRibbon(HttpServletRequest request, @RequestParam(value = "name",required = false) String name){
+    @RequestMapping(value = "/ribbon/test", method = RequestMethod.GET)
+    public String testRibbon(HttpServletRequest request, @RequestParam(value = "name", required = false) String name) {
         int port = request.getServerPort();
-        return name+";"+port;
+        return name + ";" + port;
     }
 
-    @RequestMapping(value = "/redis" , method = RequestMethod.GET)
-    public void testRedis(){
+    @RequestMapping(value = "/redis", method = RequestMethod.GET)
+    public void testRedis() {
 //        RedisClient client= RedisClient.create("redis://localhost:7617");
 //        StatefulRedisConnection connection = client.connect();
 //        RedisCommands command = connection.sync();
@@ -68,7 +67,6 @@ public class MockController {
 //        log.info(JSON.toJSONString(testBean2));
 
 
-
 //        command.set("test","22222333");
 //        String s2 = (String) command.get("test");
 //        log.info(s2);
@@ -79,35 +77,35 @@ public class MockController {
 
 //        redisTemplate.opsForValue().increment()
 
-        stringRedisTemplate.opsForValue().set("test","444");
+        stringRedisTemplate.opsForValue().set("test", "444");
         String s4 = stringRedisTemplate.opsForValue().get("test");
         log.info(s4);
 
-        TestBean bean = new TestBean("张三",23,new Date());
-        redisTemplate.opsForValue().set("user",bean);
+        TestBean bean = new TestBean("张三", 23, new Date());
+        redisTemplate.opsForValue().set("user", bean);
 
         TestBean testBean = (TestBean) redisTemplate.opsForValue().get("user");
         log.info(testBean.toString());
 
-        String k1 ="list1";
+        String k1 = "list1";
 
         List<TestBean> list = new ArrayList<>();
         list.add(bean);
-        bean = new TestBean("张三2",233,new Date());
+        bean = new TestBean("张三2", 233, new Date());
         list.add(bean);
         ListOperations operations = redisTemplate.opsForList();
-        operations.leftPush(k1,list);
+        operations.leftPush(k1, list);
 
-        List tmp = operations.range(k1,0,0);
+        List tmp = operations.range(k1, 0, 0);
 
     }
 
     @GetMapping("/guava/cache/test")
-    public ResponseEntity testGuavaCache(@RequestParam(value = "key",required = false) String key){
+    public ResponseEntity testGuavaCache(@RequestParam(value = "key", required = false) String key) {
         String value = StringUtils.EMPTY;
         try {
             value = cache.get(key);
-            log.info("value:{}",value);
+            log.info("value:{}", value);
         } catch (ExecutionException e) {
 
         }

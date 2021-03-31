@@ -13,11 +13,12 @@ import java.util.List;
 
 /**
  * sentinel 限流和熔断框架
+ *
  * @date 2018-12-24
  */
 @Slf4j
 public class HelloWorld {
-    private static final String HELLO_WORLD =   "hello world";
+    private static final String HELLO_WORLD = "hello world";
 
     public static void main(String[] args) {
         initFlowRules();
@@ -36,7 +37,7 @@ public class HelloWorld {
         }
     }
 
-    private static void initFlowRules(){
+    private static void initFlowRules() {
         List<FlowRule> rules = new ArrayList<FlowRule>();
         FlowRule rule = new FlowRule();
         rule.setResource(HELLO_WORLD);

@@ -20,29 +20,29 @@ public class MyHttpServerRoute {
 
         Router router = Router.router(vertx);
 
-        router.route("/").handler(req ->{
+        router.route("/").handler(req -> {
             req.response().end("all");
         });
 
         //get
-        router.route("/index").handler(req ->{
-           req.response().end("index");
+        router.route("/index").handler(req -> {
+            req.response().end("index");
         });
 
         //post
-        router.post("/do/post").handler(req ->{
+        router.post("/do/post").handler(req -> {
             req.response().end("do post23");
         });
 
         //get param
-        router.route(HttpMethod.GET,"/get").handler(req ->{
+        router.route(HttpMethod.GET, "/get").handler(req -> {
             String a = req.request().getParam("a");
             log.info(a);
             req.response().end("get get");
         });
 
 
-        server.requestHandler(router :: accept);
+        server.requestHandler(router::accept);
         server.listen(9999);
     }
 }

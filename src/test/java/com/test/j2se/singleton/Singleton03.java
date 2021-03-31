@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Singleton03 {
 
-    private static  Singleton03 instance = null;
+    private static Singleton03 instance = null;
 
     //通过构造方法限定为private,避免了类在外部被实例化,这样该类的实例只能通过getInstance()获取.
     private Singleton03() {

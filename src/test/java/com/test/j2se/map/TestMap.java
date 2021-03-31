@@ -31,6 +31,6 @@ public class TestMap extends TestCase {
         System.out.println(v3);
         System.out.println(map.get("b"));
 
-        
+
     }
 }

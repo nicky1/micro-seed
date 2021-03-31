@@ -12,6 +12,7 @@ import java.util.Map;
 
 /**
  * BloomFilter，解决缓存穿透，使用guava的工具类
+ *
  * @author yixiaoshuang
  * @date 2019-05-23 15:13
  */
@@ -19,13 +20,14 @@ import java.util.Map;
 public class BloomFilterTest {
     private static int size = 9000000;
 
-    private static BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.integerFunnel(),size);
+    private static BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.integerFunnel(), size);
 
-    private static Map<Integer,Integer> map = Maps.newHashMap();
-    public static void main (String[] args) {
+    private static Map<Integer, Integer> map = Maps.newHashMap();
+
+    public static void main(String[] args) {
         long startTime = System.nanoTime(); // 获取开始时间
 
-        for (int i=0;i<size;i++){
+        for (int i = 0; i < size; i++) {
             bloomFilter.put(i);
 //            map.put(i,i);
         }
@@ -40,7 +42,7 @@ public class BloomFilterTest {
         System.out.println("误判的数量：" + list.size());
 
         long endTime = System.nanoTime();   // 获取结束时间
-        log.info("程序运行时间： " + (endTime - startTime)/1000000 + "毫秒");
+        log.info("程序运行时间： " + (endTime - startTime) / 1000000 + "毫秒");
     }
 
 }

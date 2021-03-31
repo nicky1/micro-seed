@@ -4,10 +4,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class TestThread {
 
-	public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
 
-		Rabbit thread=new Rabbit();
-		System.out.println(thread instanceof Thread);
+        Rabbit thread = new Rabbit();
+        System.out.println(thread instanceof Thread);
 //		thread.start();
 
 //		Class<Rabbit> tmp=Rabbit.class;
@@ -16,16 +16,16 @@ public class TestThread {
 //		System.out.println(cons);
 
 
-	}
+    }
 
-	public static class B {
+    public static class B {
 
-	}
+    }
 
-	AtomicInteger atomicInteger = new AtomicInteger(1);
+    AtomicInteger atomicInteger = new AtomicInteger(1);
 
 }
 
-class A{
+class A {
 
 }

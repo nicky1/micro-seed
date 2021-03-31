@@ -17,10 +17,10 @@ public class EscapeAnalysis {
             alloc(i);
         }
         long t2 = System.currentTimeMillis();
-        System.out.println(t2-t1);
+        System.out.println(t2 - t1);
     }
 
-    public static void alloc(int i){
+    public static void alloc(int i) {
         User user = new User();
         user.setUserid("a");
         user.setEnname("zhangsan");

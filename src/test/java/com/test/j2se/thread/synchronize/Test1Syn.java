@@ -4,9 +4,9 @@ package com.test.j2se.thread.synchronize;
  * @Author: yixiaoshuang
  * @Date: 2018/9/27 23:44
  * @Description: synchronized 锁定对象
- *      1.同步普通方法，锁定时当前对象
- *      2.同步静态方法，当前class 对象。
- *      3.同步 块，锁的是 ()
+ * 1.同步普通方法，锁定时当前对象
+ * 2.同步静态方法，当前class 对象。
+ * 3.同步 块，锁的是 ()
  */
 public class Test1Syn {
 

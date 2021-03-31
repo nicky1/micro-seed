@@ -23,32 +23,32 @@ public class VertxTest {
 
 
     @Before
-    public void setup(TestContext context){
+    public void setup(TestContext context) {
         vertx = Vertx.vertx();
-        vertx.deployVerticle(MyFirstVerticle.class.getName(),context.asyncAssertSuccess());
+        vertx.deployVerticle(MyFirstVerticle.class.getName(), context.asyncAssertSuccess());
     }
 
     @Test
-    public void testApp(TestContext context){
+    public void testApp(TestContext context) {
         final Async async = context.async();
-        vertx.createHttpClient().getNow(8080,"localhost","/",response->{
-           response.handler(body -> {
-               log.info("222");
-               context.assertTrue(body.toString().contains("hello"));
-               async.complete();
-           }) ;
+        vertx.createHttpClient().getNow(8080, "localhost", "/", response -> {
+            response.handler(body -> {
+                log.info("222");
+                context.assertTrue(body.toString().contains("hello"));
+                async.complete();
+            });
         });
     }
 
     @Test
-    public void testPeriod(){
-        vertx.setPeriodic(1000,id->{
-           log.info("timer fired,id:{}",id);
+    public void testPeriod() {
+        vertx.setPeriodic(1000, id -> {
+            log.info("timer fired,id:{}", id);
         });
     }
 
     @Test
-    public void testBlocking(){
+    public void testBlocking() {
         vertx.executeBlocking(future -> {
             try {
                 Thread.sleep(1000);
@@ -56,7 +56,7 @@ public class VertxTest {
 
             }
             future.complete();
-        },res->{
+        }, res -> {
             System.out.println("2222");
             log.info("done");
         });
